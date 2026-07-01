@@ -1,0 +1,13 @@
+# LaTeX build intermediates (latexmk regenerates these on every build)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+
+# The compiled PDF stays tracked so it's downloadable from the repo.
+# Prefer to keep the repo source-only? Uncomment the next line:
+# *.pdf

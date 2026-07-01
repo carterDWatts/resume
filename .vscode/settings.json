@@ -1,0 +1,30 @@
+{
+    // The mcdowellcv class loads Calibri .ttf via fontspec, so builds must use
+    // XeLaTeX. Full path to latexmk avoids the common "spawn latexmk ENOENT"
+    // error when VS Code is launched from Finder (GUI PATH lacks /Library/TeX/texbin).
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk-xelatex",
+            "command": "/Library/TeX/texbin/latexmk",
+            "args": [
+                "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (xelatex)",
+            "tools": ["latexmk-xelatex"]
+        }
+    ],
+    // Rebuild on every save (the Overleaf feel).
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    // Open the preview in the browser instead of VS Code's internal webview,
+    // which fails to register its service worker on this machine. The browser
+    // viewer still auto-refreshes on every save and supports SyncTeX.
+    "latex-workshop.view.pdf.viewer": "browser"
+}
